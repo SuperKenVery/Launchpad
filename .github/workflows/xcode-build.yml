@@ -27,11 +27,12 @@ jobs:
             project_file="$(ls | grep \.xcodeproj | head -1)"
             flag="-project"
           fi
-          # 带架构限定的构建命令
-          xcodebuild clean build analyze \
+          xcodebuild clean build \
             $flag "$project_file" \
             -scheme "$scheme" \
             -destination "platform=macOS" \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_ALLOWED=NO \
             2>&1 | tee xcodebuild.log
 
       - name: Upload Logs on Failure

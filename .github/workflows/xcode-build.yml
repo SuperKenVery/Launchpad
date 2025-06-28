@@ -47,7 +47,7 @@ jobs:
           # 拷贝所有.app到临时目录
           mkdir "$OUTPUT_DIR/flat_apps"
           find "$BUILD_DIR/Build/Products" -name "*.app" \
-            -exec sh -c 'cp -R "$0" "$OUTPUT_DIR/flat_apps/$(basename "$0")"' {} \;
+            -exec sh -c 'cp -R "$1" "$2/$(basename "$1")"' _ {} "$OUTPUT_DIR/flat_apps" \;
 
           # 直接压缩整个目录（保留平面结构）
           (cd "$OUTPUT_DIR/flat_apps" && tar -czvf ../app_bundle.tar.gz ./*)

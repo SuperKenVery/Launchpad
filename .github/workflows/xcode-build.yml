@@ -32,7 +32,6 @@ jobs:
             $flag "$project_file" \
             -scheme "$scheme" \
             -destination "platform=macOS" \
-            -arch arm64 \
             2>&1 | tee xcodebuild.log
 
       - name: Upload Logs on Failure

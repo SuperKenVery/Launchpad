@@ -23,3 +23,10 @@ As you all know, macOS 26 has removed the good old-school launchpad. Therefore, 
 - [ ] Search
 - [ ] Page indicator at bottom
 - [ ] Show dock
+
+# FAQ
+Q: Why was launchpad removed?
+
+A: Cuz Apple thinks they are smarter than you
+
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/b86edcbc-a0cb-4708-8836-812874c7712e" />

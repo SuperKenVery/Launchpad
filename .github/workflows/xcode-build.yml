@@ -15,15 +15,17 @@ jobs:
           echo "scheme=${default}" >> $GITHUB_ENV
           echo "Selected scheme: $default"
 
-      - name: Build & Analyze
+      - name: Build & Package
         run: |
           set -eo pipefail
           scheme="${{ env.scheme }}"
 
-          # 新增：设置构建产物保存路径
-          ARTIFACTS_DIR="$PWD/build_artifacts"
-          mkdir -p $ARTIFACTS_DIR
+          # 目录设置
+          BUILD_DIR="$PWD/build_artifacts"
+          OUTPUT_DIR="$PWD/output"
+          mkdir -p $BUILD_DIR $OUTPUT_DIR
 
+          # 检测项目文件
           if [ -n "$(ls | grep \.xcworkspace)" ]; then
             project_file="$(ls | grep \.xcworkspace | head -1)"
             flag="-workspace"
@@ -32,18 +34,24 @@ jobs:
             flag="-project"
           fi
 
+          # 构建
           xcodebuild clean build \
             $flag "$project_file" \
             -scheme "$scheme" \
-            -derivedDataPath $ARTIFACTS_DIR \
             -destination "platform=macOS" \
+            -derivedDataPath $BUILD_DIR \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_ALLOWED=NO \
             2>&1 | tee xcodebuild.log
 
-          # 新增：压缩构建产物
-          find $ARTIFACTS_DIR/Build/** -type d -name "*.app" -exec tar czf app_bundle.tar.gz {} +
-          echo "APP_BUNDLE=app_bundle.tar.gz" >> $GITHUB_ENV
+          # 拷贝所有.app到临时目录
+          mkdir "$OUTPUT_DIR/flat_apps"
+          find "$BUILD_DIR/Build/Products" -name "*.app" \
+            -exec sh -c 'cp -R "$0" "$OUTPUT_DIR/flat_apps/$(basename "$0")"' {} \;
+
+          # 直接压缩整个目录（保留平面结构）
+          (cd "$OUTPUT_DIR/flat_apps" && tar -czvf ../app_bundle.tar.gz ./*)
+          echo "APP_BUNDLE=$OUTPUT_DIR/app_bundle.tar.gz" >> $GITHUB_ENV
 
       - name: Upload Logs on Failure
         if: ${{ failure() }}

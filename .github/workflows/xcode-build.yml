@@ -7,7 +7,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Set Default Scheme
         id: set-scheme
         run: |
@@ -34,10 +34,10 @@ jobs:
             -destination "platform=macOS" \
             -arch arm64 \
             2>&1 | tee xcodebuild.log
-      
+
       - name: Upload Logs on Failure
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: xcodebuild-logs
           path: xcodebuild.log

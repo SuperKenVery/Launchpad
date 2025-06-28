@@ -24,7 +24,7 @@ struct LaunchPad: View {
                 LazyHStack(spacing: 0) {
                     ForEach(0..<numberOfPages, id: \.self) { page in
                         PageContent(
-                            apps: appsForPage(page),
+                            apps: appsForPage(page)
                         )
                         .frame(width: geometry.size.width, height: geometry.size.height)
                     }

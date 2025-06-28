@@ -7,19 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE71EE0C2E0F9FB8007D4C19 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE71EE0B2E0F9FB8007D4C19 /* Gesture.swift */; };
 		BEC147312E0AB766008AD331 /* launchpadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC147302E0AB766008AD331 /* launchpadApp.swift */; };
 		BEC147332E0AB766008AD331 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC147322E0AB766008AD331 /* ContentView.swift */; };
 		BEC147352E0AB767008AD331 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC147342E0AB767008AD331 /* Assets.xcassets */; };
 		BEC147382E0AB767008AD331 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC147372E0AB767008AD331 /* Preview Assets.xcassets */; };
+		BEC147402E0AB77C008AD331 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC1473F2E0AB77C008AD331 /* AppList.swift */; };
+		BEC147422E0ABA1F008AD331 /* SingleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC147412E0ABA1F008AD331 /* SingleApp.swift */; };
+		BEC147442E0ABA5D008AD331 /* LaunchPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC147432E0ABA5D008AD331 /* LaunchPad.swift */; };
+		BEC147472E0ACFC5008AD331 /* TranslucentWindowStyle in Frameworks */ = {isa = PBXBuildFile; productRef = BEC147462E0ACFC5008AD331 /* TranslucentWindowStyle */; };
+		BEC147492E0BA521008AD331 /* Wallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC147482E0BA521008AD331 /* Wallpaper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE71EE0B2E0F9FB8007D4C19 /* Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
 		BEC1472D2E0AB766008AD331 /* launchpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = launchpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC147302E0AB766008AD331 /* launchpadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launchpadApp.swift; sourceTree = "<group>"; };
 		BEC147322E0AB766008AD331 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BEC147342E0AB767008AD331 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEC147372E0AB767008AD331 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BEC147392E0AB767008AD331 /* launchpad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = launchpad.entitlements; sourceTree = "<group>"; };
+		BEC1473F2E0AB77C008AD331 /* AppList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppList.swift; sourceTree = "<group>"; };
+		BEC147412E0ABA1F008AD331 /* SingleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleApp.swift; sourceTree = "<group>"; };
+		BEC147432E0ABA5D008AD331 /* LaunchPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPad.swift; sourceTree = "<group>"; };
+		BEC147482E0BA521008AD331 /* Wallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallpaper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC147472E0ACFC5008AD331 /* TranslucentWindowStyle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +66,11 @@
 			children = (
 				BEC147302E0AB766008AD331 /* launchpadApp.swift */,
 				BEC147322E0AB766008AD331 /* ContentView.swift */,
+				BEC147412E0ABA1F008AD331 /* SingleApp.swift */,
+				BEC147432E0ABA5D008AD331 /* LaunchPad.swift */,
+				BE71EE0B2E0F9FB8007D4C19 /* Gesture.swift */,
+				BEC147482E0BA521008AD331 /* Wallpaper.swift */,
+				BEC1473F2E0AB77C008AD331 /* AppList.swift */,
 				BEC147342E0AB767008AD331 /* Assets.xcassets */,
 				BEC147392E0AB767008AD331 /* launchpad.entitlements */,
 				BEC147362E0AB767008AD331 /* Preview Content */,
@@ -85,6 +102,9 @@
 			dependencies = (
 			);
 			name = launchpad;
+			packageProductDependencies = (
+				BEC147462E0ACFC5008AD331 /* TranslucentWindowStyle */,
+			);
 			productName = launchpad;
 			productReference = BEC1472D2E0AB766008AD331 /* launchpad.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +133,9 @@
 				Base,
 			);
 			mainGroup = BEC147242E0AB766008AD331;
+			packageReferences = (
+				BEC147452E0ACFC5008AD331 /* XCRemoteSwiftPackageReference "TranslucentWindowStyle" */,
+			);
 			productRefGroup = BEC1472E2E0AB766008AD331 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +162,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE71EE0C2E0F9FB8007D4C19 /* Gesture.swift in Sources */,
 				BEC147332E0AB766008AD331 /* ContentView.swift in Sources */,
+				BEC147422E0ABA1F008AD331 /* SingleApp.swift in Sources */,
+				BEC147402E0AB77C008AD331 /* AppList.swift in Sources */,
+				BEC147442E0ABA5D008AD331 /* LaunchPad.swift in Sources */,
+				BEC147492E0BA521008AD331 /* Wallpaper.swift in Sources */,
 				BEC147312E0AB766008AD331 /* launchpadApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +299,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = launchpad/launchpad.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -284,9 +313,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ken.launchpad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -298,6 +329,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = launchpad/launchpad.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -311,9 +343,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ken.launchpad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -341,6 +375,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BEC147452E0ACFC5008AD331 /* XCRemoteSwiftPackageReference "TranslucentWindowStyle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DominatorVbN/TranslucentWindowStyle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BEC147462E0ACFC5008AD331 /* TranslucentWindowStyle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEC147452E0ACFC5008AD331 /* XCRemoteSwiftPackageReference "TranslucentWindowStyle" */;
+			productName = TranslucentWindowStyle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BEC147252E0AB766008AD331 /* Project object */;
 }

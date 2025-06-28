@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    let apps: [InstalledApp] = fetch_apps()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            LaunchPad()
         }
-        .padding()
     }
 }
+
+
 
 #Preview {
     ContentView()

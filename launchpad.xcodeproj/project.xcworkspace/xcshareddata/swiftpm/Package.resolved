@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "translucentwindowstyle",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DominatorVbN/TranslucentWindowStyle",
+      "state" : {
+        "revision" : "195bcda782e90f2b7565cbea83dbbb2594e448ab",
+        "version" : "2.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}

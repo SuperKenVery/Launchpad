@@ -19,7 +19,11 @@ jobs:
         run: |
           set -eo pipefail
           scheme="${{ env.scheme }}"
-          # 自动检测项目类型
+
+          # 新增：设置构建产物保存路径
+          ARTIFACTS_DIR="$PWD/build_artifacts"
+          mkdir -p $ARTIFACTS_DIR
+
           if [ -n "$(ls | grep \.xcworkspace)" ]; then
             project_file="$(ls | grep \.xcworkspace | head -1)"
             flag="-workspace"
@@ -27,13 +31,19 @@ jobs:
             project_file="$(ls | grep \.xcodeproj | head -1)"
             flag="-project"
           fi
+
           xcodebuild clean build \
             $flag "$project_file" \
             -scheme "$scheme" \
+            -derivedDataPath $ARTIFACTS_DIR \
             -destination "platform=macOS" \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_ALLOWED=NO \
             2>&1 | tee xcodebuild.log
+
+          # 新增：压缩构建产物
+          find $ARTIFACTS_DIR/Build/** -type d -name "*.app" -exec tar czf app_bundle.tar.gz {} +
+          echo "APP_BUNDLE=app_bundle.tar.gz" >> $GITHUB_ENV
 
       - name: Upload Logs on Failure
         if: ${{ failure() }}
@@ -41,3 +51,12 @@ jobs:
         with:
           name: xcodebuild-logs
           path: xcodebuild.log
+
+      # 新增：上传构建产物
+      - name: Upload Build Artifacts
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-bundle
+          path: ${{ env.APP_BUNDLE }}
+          retention-days: 3 # 自动保留3天
